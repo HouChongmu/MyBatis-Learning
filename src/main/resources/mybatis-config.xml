@@ -6,8 +6,6 @@
 <!--这是MyBatis的全局配置文件，知道MyBatis如何正确运行。
 比如连接向哪个数据库
 -->
-
-
 <configuration>
     <environments default="development">
         <environment id="development">
@@ -21,7 +19,9 @@
             </dataSource>
         </environment>
     </environments>
+    <!--引入我们自己写的每一个接口的实现文件名称-->
     <mappers>
-        <mapper resource="org/mybatis/example/BlogMapper.xml"/>
+        <!--resource标识从类路径下找资源-->
+        <mapper resource="EmployeeDao.xml"/>
     </mappers>
 </configuration>
