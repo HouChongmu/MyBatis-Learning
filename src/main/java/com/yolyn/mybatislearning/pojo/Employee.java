@@ -1,9 +1,7 @@
-package com.yolyn.mybatislearning.bean;
+package com.yolyn.mybatislearning.pojo;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.springframework.context.annotation.Bean;
 
 /**
  * @author houyl

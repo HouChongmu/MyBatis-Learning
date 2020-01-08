@@ -1,12 +1,12 @@
-package com.yolyn.mybatislearning.dao;
+package com.yolyn.mybatislearning.mapper;
 
-import com.yolyn.mybatislearning.bean.Employee;
+import com.yolyn.mybatislearning.pojo.Employee;
 
 /**
  * @author houyl
  * @description 数据库操作对象接口
  * @since 2019/8/31 15:03
  */
-public interface EmployeeDao {
+public interface EmployeeMapper {
      Employee getEmployeeById(Integer id);
 }
