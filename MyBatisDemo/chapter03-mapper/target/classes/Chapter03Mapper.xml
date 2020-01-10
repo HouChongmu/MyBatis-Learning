@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.Chapter03Mapper">
+    <select id="queryEmail" resultType="string">
+    select email from t_employee where empname = #{name}
+  </select>
+    <!--RowBounds是MyBatis配置文件的一个默认参数，会自动识别它，根据这个进行分页-->
+    <select id="findByRowBounds" resultType="employee">
+    select * from t_employee where gender = #{gender}
+  </select>
+
+    <insert id="addEmployee" parameterType="employee" useGeneratedKeys="true" keyProperty="id">
+        insert into t_employee (empname,gender,email) values (#{empName},#{gender},#{email})
+    </insert>
+</mapper>
