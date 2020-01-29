@@ -55,7 +55,7 @@ sqlSessionFactory工厂默认构建的是DefaultSqlSession（非线程安全）
         resultType：指定方法运行后的返回值类型（查询操作必须指定）
         #{属性名}：代表取出传递过来的某个参数值
     -->
-    <select id="getEmployeeById" resultType="com.yolyn.mybatislearning.pojo.Employee">
+    <select id="getEmployeeById" resultType="com.yolyn.mybatislearning.Employee">
     select * from t_employee where id = #{id}
   </select>
 </mapper>

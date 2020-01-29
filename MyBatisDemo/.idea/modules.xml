@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/chapter01-introduction/mybatis-chapter01-introduction.iml" filepath="$PROJECT_DIR$/chapter01-introduction/mybatis-chapter01-introduction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter02-configuration/chapter02-configuration.iml" filepath="$PROJECT_DIR$/chapter02-configuration/chapter02-configuration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter03-mapper/chapter03-mapper.iml" filepath="$PROJECT_DIR$/chapter03-mapper/chapter03-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter031-mapper/chapter031-mapper.iml" filepath="$PROJECT_DIR$/chapter031-mapper/chapter031-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-learning.iml" filepath="$PROJECT_DIR$/mybatis-learning.iml" />
+    </modules>
+  </component>
+</project>

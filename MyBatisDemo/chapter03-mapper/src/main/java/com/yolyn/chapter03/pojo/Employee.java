@@ -1,4 +1,4 @@
-package pojo;
+package com.yolyn.chapter03.pojo;
 
 import lombok.Data;
 import lombok.ToString;

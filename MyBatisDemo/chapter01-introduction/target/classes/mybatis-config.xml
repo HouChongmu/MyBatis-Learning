@@ -13,7 +13,7 @@
         <setting name="autoMappingBehavior" value="FULL"/>
     </settings>
     <typeAliases>
-        <typeAlias alias="employee" type="com.yolyn.mybatislearning.pojo.Employee"/>
+        <typeAlias alias="employee" type="com.yolyn.mybatislearning.Employee"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">

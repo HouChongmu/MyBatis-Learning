@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="chapter01-introduction" />
+        <module name="chapter02-configuration" />
+        <module name="chapter03-mapper" />
+        <module name="chapter031-mapper" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="chapter01-introduction" target="1.5" />
+      <module name="chapter02-configuration" target="1.5" />
+      <module name="chapter03-mapper" target="1.5" />
+      <module name="chapter031-mapper" target="1.5" />
+      <module name="mybatis-learning" target="1.5" />
+      <module name="MyBatisDemo" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

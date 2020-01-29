@@ -2,16 +2,60 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.Chapter03Mapper">
+<mapper namespace="com.yolyn.chapter03.mapper.Chapter03Mapper">
+    <!--1. 简单select-->
     <select id="queryEmail" resultType="string">
     select email from t_employee where empname = #{name}
   </select>
-    <!--RowBounds是MyBatis配置文件的一个默认参数，会自动识别它，根据这个进行分页-->
+
+
+    <!--2. RowBounds分页：RowBounds是MyBatis配置文件的一个默认参数，会自动识别它，根据这个进行分页-->
     <select id="findByRowBounds" resultType="employee">
     select * from t_employee where gender = #{gender}
   </select>
 
+
+    <!--3. 主键回填:keyProperty或keyColumn告诉系统把生成的主键放在哪个属性中-->
     <insert id="addEmployee" parameterType="employee" useGeneratedKeys="true" keyProperty="id">
         insert into t_employee (empname,gender,email) values (#{empName},#{gender},#{email})
     </insert>
+
+
+    <!--4. 自定义主键：有时候主键的生成会依赖某些规则，如主键id的递增规则：
+    1. 当表id为空时，id设置为1；
+    2. 当表记录不为空时，id设置为当前id加3
+    -->
+    <sql id="empCols">
+       empname,gender,email
+    </sql>
+    <insert id="insertEmployee" parameterType="employee">
+        <selectKey keyProperty="id" resultType="integer" order="BEFORE">
+            select if(max(id)=null,1,max(id)+3) from t_employee
+        </selectKey>
+        insert into t_employee (
+        <include refid="empCols"/>
+        ) values (#{id},#{empName},#{gender},#{email})
+    </insert>
+    <!--
+        selectKey指定了采用哪个属性作为POJO的主键
+        resultType告诉了MyBatis将返回一个int型的结果集
+        order设置为before说明它将于当前定义的SQL前先执行生成主键的SQL
+        -->
+
+    <!--5. sql元素
+    - 1. 编写一次，后面可在文件中引用
+    - 2. 参数传递
+    -->
+    <sql id="empCols2">
+       ${alias}.empname,${alias}.gender,${alias}.email
+    </sql>
+
+    <select id="sqlAliasTest" resultType="employee" parameterType="employee">
+        select
+        <include refid="empCols2">
+            <!--参数传递-->
+            <property name="alias" value="e"/>
+        </include>
+        from t_employee e where id=#{emp.id}
+    </select>
 </mapper>

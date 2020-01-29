@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties"/>
+    <settings>
+        <!--是否延迟加载，默认值是false-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--是否采用层级加载，在级联层级表同一层的表中的数据会被load出来
+        但是后面再association和collection元素中可以打破这一限制
+        可以在元素中添加fetchType属性
+        - 1. eager:获得当前POJO后立即加载对应的数据
+        - 2. lazy：获得当前POJO后延迟加载对应的数据
+        -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+    <typeAliases>
+        <typeAlias alias="employee" type="com.yolyn.chapter031.pojo.Employee"/>
+        <package name="com.yolyn.chapter031.pojo"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!--配置连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${database.driver}"/>
+                <property name="url" value="${database.url}"/>
+                <property name="username" value="${database.username}"/>
+                <property name="password" value="${database.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--引入我们自己写的每一个接口的实现文件名称-->
+    <mappers>
+        <!--resource标识从类路径下找资源-->
+        <package name="com.yolyn.chapter031.mapper"/>
+        <package name="com.yolyn.chapter031.mapper2"/>
+    </mappers>
+</configuration>
